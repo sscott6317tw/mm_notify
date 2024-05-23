@@ -19,7 +19,7 @@ class MMBot:
         self.config = configparser.ConfigParser() 
         self.config.read("config\config.ini")
         self.server_url = "pmo-mattermost.qyrc452.com"
-        self.eng_name = self.config['tg_info']['eng_name']
+        self.eng_name = user
         self.username = self.config['mm_info'][f'{user}_username']
         self.password = self.config['mm_info'][f'{user}_password']
         self.token = None
@@ -151,7 +151,7 @@ if __name__ == "__main__":
     if args.user:
         user = args.user
     else:
-        user = "ralf"
+        user = "joey"
     new_time = datetime.now() + timedelta(minutes=5)
     end_time = new_time.strftime("%Y-%m-%d %H:%M")
     method = MMBot("qa-ornd", method="websocket")
