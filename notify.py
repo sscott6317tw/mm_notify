@@ -100,7 +100,7 @@ class MMBot:
                                     )
                                     telegram_post_msg(self.eng_name, msg)
                         elif r.get("event") and r.get("event") == 'status_change' : #防止離線方式
-                            await self.send_private_message("test")
+                            await self.send_private_message("我離線囉~~~:pedroraccoon: ")
                             msg = (
                                 "你離線啦!!!!!!!幫你傳個訊息給別人 Hee Ha~~~~~~~"
                             )
@@ -117,12 +117,13 @@ class MMBot:
         headers = self.headers = {"Authorization": f"Bearer {mm_bot.token}"}
         #Kevin err4uojxsj8mmysd1yt1mjhcpr
         #Joey pzzxp9nni3nctrkdmm131me41h
+        #離線群組 1easc8g5sjfoicij81f4kdtw3r
         send_msg = {
-            "ralf": "pzzxp9nni3nctrkdmm131me41h", #後面是要送的人
-            "joey": "err4uojxsj8mmysd1yt1mjhcpr"
+            "ralf": "1easc8g5sjfoicij81f4kdtw3r", #後面是要送的人
+            "joey": "1easc8g5sjfoicij81f4kdtw3r"
             }
         async with ClientSession(headers=headers) as session:
-            content = {"channel_id": send_msg[user], "message": message}
+            content = {"channel_id": "1easc8g5sjfoicij81f4kdtw3r", "message": message}
             async with session.post(f"{url}/posts", json=content) as resp:
                 msg_id = await resp.json()
         return message
